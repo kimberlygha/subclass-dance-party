@@ -22,6 +22,14 @@ var makeDancer = function(top, left, timeBetweenSteps) {
     setTimeout(this.step.bind(this), this.timeBetweenSteps);
   };
 
+  makeDancer.prototype.setSize = function(size){
+    var sizeSettings = {
+      border: size+"px solid red",
+      "border-radius": size+"px"
+    };
+    this.$node.css(sizeSettings);
+  }
+
   makeDancer.prototype.setPosition = function(top, left) {
     // Use css top and left properties to position our <span> tag
     // where it belongs on the page. See http://api.jquery.com/css/
