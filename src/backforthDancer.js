@@ -3,6 +3,8 @@ var backforthDancer = function(top, left, timeBetweenSteps){
   this.top = top; 
   this.left = left; 
   this.moveLeft = true; 
+  this.$node.css({"background-image": "/images/beyonce2.png"})
+  // this.setBorder();
 };
 
 backforthDancer.prototype = Object.create(makeDancer.prototype);

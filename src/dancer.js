@@ -3,12 +3,13 @@ var makeDancer = function(top, left, timeBetweenSteps) {
 
 
   // use jQuery to create an HTML <span> tag
-  this.$node = $('<span class="dancer"></span>');
+  this.$node = $('<img src="./src/images/beyonce2.png" class="dancer">');
   
   // now that we have defined the dancer object, we can start setting up important parts of it by calling the methods we wrote
   // this one sets the position to some random default point within the body
   this.setPosition(top, left);
   this.timeBetweenSteps = timeBetweenSteps;
+  this.color = "red";
   //this.step.bind(this);
   this.step();
 };
@@ -24,10 +25,24 @@ var makeDancer = function(top, left, timeBetweenSteps) {
 
   makeDancer.prototype.setSize = function(size){
     var sizeSettings = {
-      border: size+"px solid red",
+      border: size+"px solid " + this.color,
       "border-radius": size+"px"
     };
     this.$node.css(sizeSettings);
+  }
+
+  makeDancer.prototype.setBorder = function(){
+    var sizeSettings = {
+      "border-radius": 0+"px"
+    };
+    this.$node.css(sizeSettings);
+  }
+
+  makeDancer.prototype.setColor = function(color){
+    this.color = color;
+
+    this.$node.css({"border-color" : this.color});
+
   }
 
   makeDancer.prototype.setPosition = function(top, left) {

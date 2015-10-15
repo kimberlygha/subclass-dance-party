@@ -5,6 +5,7 @@ body{
   margin: 0px;
   background-color:#444;
   font-size: 18px;
+  background-image: url(http://www.desktopwallpaperhd.net/wallpapers/15/5/scenery-beautiful-mountain-wallpaper-156101.jpg);
 }
 body, a:link, a:visited, a:active{
   color: lightblue;
@@ -27,7 +28,8 @@ body, a:link, a:visited, a:active{
   background-color: #777;
 }
 .dancer{
-  border:10px solid red;
+  /*background-image: url("src/images/beyonce2.png");*/
+  /*border:10px solid red;*/
   border-radius:10px;
   position:absolute;
 }
