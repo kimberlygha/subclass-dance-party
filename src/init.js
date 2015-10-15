@@ -10,7 +10,7 @@ $(document).ready(function() {
 
 
     var dancer = new dancerMakerFunction(
-      100,
+      10,
       initLeft,
       600,
       '<img src="./src/images/gifs 2/pizza.gif" class="dancer">'
@@ -29,7 +29,7 @@ $(document).ready(function() {
 
 
     var dancer = new dancerMakerFunction(
-      100,
+      10,
       initLeft,
       600, 
 '<img src="./src/images/gifs 2/beyonce.gif" class="dancer">'
@@ -47,7 +47,7 @@ $(document).ready(function() {
 
 
     var dancer = new dancerMakerFunction(
-      100,
+      10,
       initLeft,
       600,
       '<img src="./src/images/gifs 2/obama.gif" class="dancer">'
@@ -66,7 +66,7 @@ $(document).ready(function() {
       dancers[i].top = top; 
       dancers[i].left = 30;
       dancers[i].setPosition(top,30); 
-    top+=50;
+    top+=5;
     }
 
   });
@@ -82,23 +82,29 @@ $(document).ready(function() {
         var currentDancer = dancers[i];
         if(currentDancer.constructor === growingDancer ){
           growingRow+= 220;
-          dancers[i].top = 200;
+          dancers[i].top = 20;
           dancers[i].left = growingRow; 
-          dancers[i].setPosition(200, growingRow);
+          dancers[i].setPosition(20, growingRow);
         } else if (currentDancer.constructor === makeBlinkyDancer ){
           blinkyRow+= 220;
-          dancers[i].top = 400;
+          dancers[i].top = 40;
           dancers[i].left = blinkyRow; 
-          dancers[i].setPosition(400, blinkyRow);
+          dancers[i].setPosition(40, blinkyRow);
         } else if (currentDancer.constructor === backforthDancer ){
           backforthRow+=220;
-          dancers[i].top = 600;
+          dancers[i].top = 60;
           dancers[i].left = backforthRow; 
-          dancers[i].setPosition(600, backforthRow);
+          dancers[i].setPosition(60, backforthRow);
         }
       }
     });
 
+
+    $("body").mouseover(function(event){
+      var height = $(window).height();
+      var top = event.pageY / height * 100;
+      window.dancers[0].setPosition(top, event.pageX)
+    })
 
 
 
