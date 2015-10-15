@@ -48,7 +48,7 @@ var makeDancer = function(top, left, timeBetweenSteps, imageSrc) {
     // where it belongs on the page. See http://api.jquery.com/css/
     //
     var styleSettings = {
-      top: top,
+      top: top+'%',
       left: left
     };
     this.$node.css(styleSettings);
