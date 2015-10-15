@@ -62,5 +62,32 @@ $(document).ready(function() {
 
   });
 
+
+    $(".danceRows").on("click", function(event) {
+
+      var dancers = window.dancers;
+      var growingRow = 0;
+      var backforthRow = 0;
+      var blinkyRow = 0;
+      var left = 0;
+      for(var i = 0; i < dancers.length; i++){
+        var currentDancer = dancers[i];
+        if(currentDancer.constructor === growingDancer ){
+          growingRow+= 220;
+          currentDancer.setPosition(200, growingRow);
+        } else if (currentDancer.constructor === makeBlinkyDancer ){
+          blinkyRow+= 220;
+          currentDancer.setPosition(400, blinkyRow);
+        } else if (currentDancer.constructor === backforthDancer ){
+          backforthRow+=220;
+          currentDancer.setPosition(600 , backforthRow);
+        }
+      }
+
+
+    });
+
+
+
 });
 
