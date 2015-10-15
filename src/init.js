@@ -59,7 +59,7 @@ $(document).ready(function() {
 
   $(".lineUpDancers").on("click", function(event) {
 
-
+    initLeft = 0; 
     var dancers = window.dancers;
     var top = 20;
     for(var i = 0 ; i < dancers.length ; i++){
@@ -72,6 +72,7 @@ $(document).ready(function() {
   });
 
     $(".danceRows").on("click", function(event) {
+      initLeft = 0 ;
       var dancers = window.dancers;
       var growingRow = 0;
       var backforthRow = 0;

@@ -36,11 +36,14 @@ body, a:link, a:visited, a:active{
   /*border:10px solid red;*/
   border-radius:10px;
   position:absolute;
-  transition-duration : 1s;
-  transition-property: transform;
+  /*transition-duration : 1s;*/
+  /*transition-property: transform;*/
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
 }
 
 .dancer:hover{
   -webkit-transform : rotate(360deg);
   /*background-image: url("src/images/beyonce2.png");*/
 }
+
