@@ -1,5 +1,6 @@
 $(document).ready(function() {
   window.dancers = [];
+  var initLeft = 0;
 
   $(".addDancerButton").on("click", function(event) {
 
@@ -9,10 +10,12 @@ $(document).ready(function() {
 
 
     var dancer = new dancerMakerFunction(
-      $("body").height() * Math.random(),
-      $("body").width() * Math.random(),
-      Math.random() * 1000
+      100,
+      initLeft,
+      600,
+      '<img src="./src/images/gifs 2/pizza.gif" class="dancer">'
     );
+    initLeft += 160;
     $('body').append(dancer.$node);
     window.dancers.push(dancer);
   });
@@ -26,10 +29,12 @@ $(document).ready(function() {
 
 
     var dancer = new dancerMakerFunction(
-      $("body").height() * Math.random(),
-      $("body").width() * Math.random(),
-      Math.random() * 1000
+      100,
+      initLeft,
+      600, 
+'<img src="./src/images/gifs 2/beyonce.gif" class="dancer">'
     );
+    initLeft+= 160;
     $('body').append(dancer.$node);
      window.dancers.push(dancer);
   });
@@ -42,10 +47,12 @@ $(document).ready(function() {
 
 
     var dancer = new dancerMakerFunction(
-      $("body").height() * Math.random(),
-      $("body").width() * Math.random(),
-      Math.random() * 1000
+      100,
+      initLeft,
+      600,
+      '<img src="./src/images/gifs 2/obama.gif" class="dancer">'
     );
+    initLeft+= 160;
     $('body').append(dancer.$node);
      window.dancers.push(dancer);
   });
@@ -54,17 +61,17 @@ $(document).ready(function() {
 
 
     var dancers = window.dancers;
-    var top = 0;
+    var top = 20;
     for(var i = 0 ; i < dancers.length ; i++){
-      dancers[i].setPosition(top, 10);
-    top+=20;
+      dancers[i].top = top; 
+      dancers[i].left = 30;
+      dancers[i].setPosition(top,30); 
+    top+=50;
     }
 
   });
 
-
     $(".danceRows").on("click", function(event) {
-
       var dancers = window.dancers;
       var growingRow = 0;
       var backforthRow = 0;
@@ -74,18 +81,25 @@ $(document).ready(function() {
         var currentDancer = dancers[i];
         if(currentDancer.constructor === growingDancer ){
           growingRow+= 220;
-          currentDancer.setPosition(200, growingRow);
+          dancers[i].top = 200;
+          dancers[i].left = growingRow; 
+          dancers[i].setPosition(200, growingRow);
         } else if (currentDancer.constructor === makeBlinkyDancer ){
           blinkyRow+= 220;
-          currentDancer.setPosition(400, blinkyRow);
+          dancers[i].top = 400;
+          dancers[i].left = blinkyRow; 
+          dancers[i].setPosition(400, blinkyRow);
         } else if (currentDancer.constructor === backforthDancer ){
           backforthRow+=220;
-          currentDancer.setPosition(600 , backforthRow);
+          dancers[i].top = 600;
+          dancers[i].left = backforthRow; 
+          dancers[i].setPosition(600, backforthRow);
         }
       }
-
-
     });
+
+
+
 
 
 

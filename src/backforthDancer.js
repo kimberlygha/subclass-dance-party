@@ -1,9 +1,9 @@
-var backforthDancer = function(top, left, timeBetweenSteps){
+var backforthDancer = function(top, left, timeBetweenSteps, imageSrc){
   makeDancer.apply(this,arguments);
   this.top = top; 
   this.left = left; 
   this.moveLeft = true; 
-  this.$node.css({"background-image": "/images/beyonce2.png"})
+  // this.$node = $('<img src="./src/images/gifs 2/beyonce.gif" class="dancer">');
   // this.setBorder();
 };
 
@@ -13,10 +13,10 @@ backforthDancer.prototype.constructor = backforthDancer;
 backforthDancer.prototype.step = function(){ 
     makeDancer.prototype.step.call(this);
    if(this.moveLeft){
-    this.left+=50;
+    this.left -= 30; 
     this.moveLeft = false; 
    }else{
-    this.left -= 50; 
+    this.left += 30; 
     this.moveLeft = true; 
    }
     this.setPosition(this.top, this.left);

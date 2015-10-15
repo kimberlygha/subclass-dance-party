@@ -5,6 +5,8 @@ var makeBlinkyDancer = function(top, left, timeBetweenSteps) {
   // makeBlinkyDancer.prototype.step.call(this, null)
 
   makeDancer.apply(this, arguments);
+  // this.$node = $('<img src="./src/images/gifs 2/pizza.gif" class="dancer">');
+
 };
 
 makeBlinkyDancer.prototype = Object.create(makeDancer.prototype);
