@@ -9,6 +9,7 @@ var makeDancer = function(top, left, timeBetweenSteps, imageSrc) {
   this.setPosition(top, left);
   this.timeBetweenSteps = timeBetweenSteps;
   this.color = "red";
+  this.paired = false;
   //this.step.bind(this);
   this.step();
 };

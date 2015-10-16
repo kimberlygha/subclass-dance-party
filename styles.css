@@ -1,9 +1,31 @@
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+
 body, html{
   height:100%;
 }
 body{
+  font: 300 16px/22px "Lato", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: 0px;
-  background-color:#444;
   font-size: 18px;
   background-size: cover ;
   background-position: bottom;
@@ -11,25 +33,23 @@ body{
   background-image: url(http://www.free-desktop-backgrounds.net/free-desktop-wallpapers-backgrounds/free-hd-desktop-wallpapers-backgrounds/166051785.jpg);
 }
 body, a:link, a:visited, a:active{
-  color: lightblue;
+  color: white;
+  text-decoration: none;
 }
-.title{
-  padding:5px 12px;
-  float:left;
-}
-
-
-
-.addDancerButton, .addSwayButton{
-  padding:5px 12px;
+a{
+  padding:10px 12px;
   float:right;
 }
 .topbar{
-  height:32px;
+  position: relative;
+  height:45px;
   background-color: #555;
 }
-.title{
-  background-color: #777;
+h1{
+  font-size: 20px;
+  position: absolute;
+  float:left;
+  padding: 10px 10px;
 }
 .dancer{
   /*background-image: url("src/images/beyonce2.png");*/

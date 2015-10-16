@@ -1,5 +1,6 @@
 $(document).ready(function() {
   window.dancers = [];
+  window.pairs = [];
   var initLeft = 0;
 
   $(".addDancerButton").on("click", function(event) {
@@ -47,8 +48,8 @@ $(document).ready(function() {
 
 
     var dancer = new dancerMakerFunction(
-      10,
-      initLeft,
+      Math.random()*100,
+      Math.random()*$(window).width(),
       600,
       '<img src="./src/images/gifs 2/obama.gif" class="dancer">'
     );
@@ -99,16 +100,73 @@ $(document).ready(function() {
       }
     });
 
+    $('.grey').on("click", function(event){
+      $('body').css({'background-image':"url(http://p1.pichost.me/i/8/1311083.jpg)"});
 
-    $("body").mouseover(function(event){
-      var height = $(window).height();
-      var top = event.pageY / height * 100;
-      window.dancers[0].setPosition(top, event.pageX)
     })
 
+    $('.pizza').on("click", function(event){
+      $('body').css({'background-image':"url(https://pizza.dominos.com/store/2778/photo-0.jpg)"});
+
+    });
 
 
+    $("body").keypress(function(event){
+      if(event.keyCode === 32){
+        // pair on spacebar 
+        // make a shallow copy of dancers array 
+        var dancers = window.dancers.slice(); 
+       // write a function that takes an array as an argument
+        var pairUp = function(arr){
+          var pair = [];
+        //  check to see if length of array is greater than 1 
+          if(arr.length < 2){
+          // if arr.length === 1
+            if(arr.length === 1){
+              pair.push(arr[0]);
+              var dance = new growingDancer(10,initLeft,600,'<img src="./src/images/gifs 2/obama.gif" class="dancer">');
+              $('body').append(dance.$node);
+              pair.push(dance);
+            }
+            return; 
+          }
+          // store first value of the array to a variable called match and remove it from array   
+          var match = arr.shift();
+          pair.push(match); 
+          var matchCoordinates = [match.left, match.right];
+          // reduce the array to return the closest dancer and dancer's index  
+          var closest = arr.reduce(function(dancer, item, i){
+            var coordinate2 = [item.left,item.right];
+            var diff = [Math.pow(matchCoordinates[0]-coordinate2[0],2), Math.pow(matchCoordinates[1]-coordinate2[1],2)]
+            var length = Math.sqrt(diff[0]+diff[1]); 
+            if(length < dancer[1]){
+              dancer = [item, length, i];
+            }
+            return dancer; 
+          },[dancers[0],Infinity,0])
+          // push dancer and match variable to pair array 
+          pair.push(closest[0]);
+          // push pair array to Allpairs array 
+          window.pairs.push(pair);
+          // splice the original array to remove partner 
+          arr.splice(closest[2], 1);
+          // call function on new array 
+          pairUp(arr);
+       }
 
+       pairUp(dancers);
+
+       window.pairs.forEach(function(pair){
+        var top = Math.floor(Math.random()*100);
+        var left = Math.floor(Math.random()*$(window).width);
+          pair[0].setPosition(top, left);
+          pair[1].setPosition(top, left+20);
+       })
+    }
+  });
 
 });
+
+
+
 
